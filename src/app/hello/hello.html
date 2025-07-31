@@ -1,2 +1,4 @@
-<p>Bu gelen mesaj: {{ message }}</p>
-<button (click)="onSendResponse()">Mesaj Gönder</button>
+<h2>Products came from API:s</h2>
+<ul>
+    <li *ngFor="let p of products">{{ p.title }}</li>
+</ul>
