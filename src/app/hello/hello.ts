@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Data } from '../data';
 import { CommonModule } from '@angular/common';
+import { error } from 'console';
 
 @Component({
   selector: 'app-hello',
@@ -16,15 +17,10 @@ export class Hello {
   constructor(private dataService: Data) { }
 
   ngOnInit() {
-    this.dataService.getProductsFromApi().subscribe((data: any[]) => {
+    this.dataService.getProductsFromApi().then(data => {
       this.products = data;
-    }, error => {
-      console.error('Error fetching products:', error);
+    }).catch(err => {
+      console.error('Error fetching products:', err);
     });
   }
-
-  // addNewProduct() {
-  //   this.dataService.addProduct('Ipad');
-  //   this.products = this.dataService.getProducts();
-  // }
 }

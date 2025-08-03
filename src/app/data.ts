@@ -1,22 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Data {
-  constructor(private http: HttpClient) { }
-
-
-  // getProducts() {
-  //   return this.products;
-  // }
-
-  // addProduct(product: string) {
-  //   this.products.push(product);
-  // }
+  constructor() { }
 
   getProductsFromApi() {
-    return this.http.get<string[]>('https://fakestoreapi.com/products');
+    return fetch('https://fakestoreapi.com/products')
+      .then(response => response.json());
   }
 }
