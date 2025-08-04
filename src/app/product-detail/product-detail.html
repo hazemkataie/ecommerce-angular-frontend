@@ -1,0 +1,14 @@
+<h2>Product Detail</h2>
+<div *ngIf="loading" class="loading">Loading...</div>
+<div class="container">
+    <div *ngIf="!loading && product" class="product-detail">
+        <img [src]="product.image" alt="{{product.title}}" class="product-detail-image" />
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <strong>Fiyat: {{ product.price }} €</strong>
+    </div>
+</div>
+
+<div *ngIf="!loading && !product" class="error">
+    <p>Product not found.</p>
+</div>

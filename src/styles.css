@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Box-sizing reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Responsive image */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Mobile-first medya sorguları */
+
+/* Tablet ve üzeri */
+@media (min-width: 768px) {
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Desktop ve üzeri */
+@media (min-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

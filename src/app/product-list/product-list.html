@@ -1,0 +1,12 @@
+<h2>Product List</h2>
+<div *ngIf="loading" class="loading">Loading...</div>
+<div class="container">
+    <ul *ngIf="!loading" class="product-list">
+        <li *ngFor="let product of products" class="product-item" (click)="goToDetail(product.id)">
+            <img [src]="product.image" alt="{{product.title}}" class="product-image" />
+            <div class="product-info">
+                <strong>{{ product.title }}</strong> - {{ product.price }} €
+            </div>
+        </li>
+    </ul>
+</div>
